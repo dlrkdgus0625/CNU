@@ -17,10 +17,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     if (storedPassword && storedPassword === password) {
         localStorage.setItem('loggedInUser', username);
         alert('로그인 성공: ' + username);
+        console.log("로그인 성공 하였습니다 아이디 : " + username);
         window.location.href = 'home.html';  // 변경된 리다이렉션
     } else {
         document.getElementById('loginError').innerText = '사용자 이름이나 비밀번호가 잘못되었습니다.';
         document.getElementById('loginError').style.color = 'red';
+        console.log("login fail");
     }
     
 });
@@ -33,16 +35,19 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     if (localStorage.getItem(newUsername)) {
         document.getElementById('registerMessage').innerText = '이미 존재하는 사용자 이름입니다.';
         document.getElementById('registerMessage').style.color = 'red';
+        console.log("existing user login fail");
     } else {
         localStorage.setItem(newUsername, newPassword);  // 새 계정 정보 저장
         document.getElementById('registerMessage').innerText = '계정이 생성되었습니다.';
         document.getElementById('registerMessage').style.color = 'green';
+        console.log("account created successfully");
     }
 });
 
 // 페이지 로드 시 로그인 상태 확인 및 사용자 메뉴 표시
 window.onload = function() {
     displayUserMenu();
+    console.log("user menu display mode");
 };
 
 // 사용자 메뉴 표시 및 숨김 토글
@@ -52,6 +57,7 @@ function toggleUserMenu() {
 }
 document.addEventListener('DOMContentLoaded', function() {
     displayUserMenu();
+    console.log("DOM content loaded")
 });
 
 
@@ -71,7 +77,9 @@ function displayUserMenu() {
 
 function logout() {
     localStorage.removeItem('loggedInUser');  // 로그인 상태 정보 제거
+    console.log("login status deleted");
     window.location.href = 'index.html';  // 로그아웃 후 기본 페이지로 리다이렉션
+    console.log("logged out, redirecting to default page");
 }
 
 
@@ -92,6 +100,8 @@ async function register() {
     var hashedPassword = await hashPassword(password); // 비밀번호를 해시하여 저장
     localStorage.setItem(username, hashedPassword);
     alert('계정 생성 완료: ' + username);
+    console.log("account created successfully");
+
 }
 
 // 사용자 로그인 처리 함수
@@ -102,9 +112,11 @@ async function login() {
     var storedPassword = localStorage.getItem(username); // 저장된 해시된 비밀번호 불러오기
     if (hashedPassword === storedPassword) {
         alert('로그인 성공: ' + username);
+        console.log('로그인 성공: ');
         localStorage.setItem('loggedInUser', username);  // 사용자 로그인 상태 저장
     } else {
         alert('로그인 실패: 사용자 이름 또는 비밀번호가 잘못되었습니다.');
+        console.log(('로그인 실패: 사용자 이름 또는 비밀번호가 잘못되었습니다.'));
     }
 }
 
@@ -114,5 +126,6 @@ function logout() {
     if (loggedInUser) {
         localStorage.removeItem('loggedInUser'); // 로그인 상태 정보 제거
         alert('로그아웃 완료');
+        console.log("log out complete");
     }
 }
