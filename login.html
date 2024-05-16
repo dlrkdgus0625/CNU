@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 - 충남대학교 산업지주 회사</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h2>로그인</h2>
+        <form id="loginForm">
+            <label for="username">사용자 이름:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">로그인</button>
+            <p id="loginError"></p>
+        </form>
+        <h2>계정 생성</h2>
+        <form id="registerForm">
+            <label for="newUsername">사용자 이름:</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+            <label for="newPassword">비밀번호:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+            <button type="submit">계정 생성</button>
+            <p id="registerMessage"></p>
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #f1f1f1;
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.user-menu.open {
+    display: block;  /* 메뉴 토글 기능을 위한 클래스 */
+}
+
+header {
+    text-align: center;
+    padding: 1em;
+    background-color: #f1f1f1;
+}
+
+.user-menu {
+    background-color: #4CAF50; /* 초록색 배경 */
+    color: white; /* 텍스트 색상 */
+    padding: 10px;
+    margin: 0 auto; /* 중앙 정렬 */
+    display: block; /* 기본적으로 보이도록 설정 */
+    width: fit-content;
+}
+
+.main {
+    margin-top: 20px;
+    text-align: center;
+}
